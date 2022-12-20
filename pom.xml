@@ -20,7 +20,7 @@
 
     <groupId>org.wrensecurity</groupId>
     <artifactId>wrensec-parent</artifactId>
-    <version>3.5.1-SNAPSHOT</version>
+    <version>4.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Wren Security Parent</name>
@@ -58,13 +58,13 @@
         <snapshotRepository>
             <id>wrensecurity-snapshots</id>
             <name>Wren Security Snapshot Repository</name>
-            <url>${wrenDistMgmtSnapshotsUrl}</url>
+            <url>https://wrensecurity.jfrog.io/wrensecurity/snapshots</url>
         </snapshotRepository>
 
         <repository>
             <id>wrensecurity-releases</id>
             <name>Wren Security Release Repository</name>
-            <url>${wrenDistMgmtReleasesUrl}</url>
+            <url>https://wrensecurity.jfrog.io/wrensecurity/releases</url>
         </repository>
     </distributionManagement>
 
@@ -73,7 +73,7 @@
         <repository>
             <id>wrensecurity-releases</id>
             <name>Wren Security Release Repository</name>
-            <url>${wrenDistMgmtReleasesUrl}</url>
+            <url>https://wrensecurity.jfrog.io/wrensecurity/releases</url>
 
             <snapshots>
                 <enabled>false</enabled>
@@ -87,7 +87,7 @@
         <repository>
             <id>wrensecurity-snapshots</id>
             <name>Wren Security Snapshot Repository</name>
-            <url>${wrenDistMgmtSnapshotsUrl}</url>
+            <url>https://wrensecurity.jfrog.io/wrensecurity/snapshots</url>
 
             <snapshots>
                 <enabled>true</enabled>
@@ -103,7 +103,7 @@
         <pluginRepository>
             <id>wrensecurity-releases</id>
             <name>Wren Security Plugin Release Repository</name>
-            <url>${wrenDistMgmtReleasesUrl}</url>
+            <url>https://wrensecurity.jfrog.io/wrensecurity/releases</url>
 
             <snapshots>
                 <enabled>false</enabled>
@@ -113,7 +113,7 @@
         <pluginRepository>
             <id>wrensecurity-snapshots</id>
             <name>Wren Security Plugin Snapshot Repository</name>
-            <url>${wrenDistMgmtSnapshotsUrl}</url>
+            <url>https://wrensecurity.jfrog.io/wrensecurity/snapshots</url>
 
             <snapshots>
                 <enabled>true</enabled>
@@ -128,12 +128,11 @@
 
         <!-- maven-compiler-plugin https://maven.apache.org/plugins/maven-compiler-plugin -->
         <mavenCompilerPluginVersion>3.10.1</mavenCompilerPluginVersion>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.release>11</maven.compiler.release>
 
         <!-- maven-enforcer-plugin -->
         <maven.min.version>3.6.0</maven.min.version>
-        <jdk.min.version>${maven.compiler.source}</jdk.min.version>
+        <jdk.min.version>${maven.compiler.release}</jdk.min.version>
 
         <!-- spotbugs-maven-plugin -->
         <spotbugsPluginVersion>4.7.2.1</spotbugsPluginVersion>
@@ -147,7 +146,7 @@
 
         <!-- maven-pmd-plugin -->
         <pmdPluginVersion>3.19.0</pmdPluginVersion>
-        <pmdTargetJdk>${maven.compiler.target}</pmdTargetJdk>
+        <pmdTargetJdk>${maven.compiler.release}</pmdTargetJdk>
 
         <!--  maven-project-info-reports-plugin -->
         <infoReportsPluginVersion>3.4.1</infoReportsPluginVersion>
@@ -220,10 +219,6 @@
         <pgpVerifySnapshots>false</pgpVerifySnapshots>
         <pgpVerifyKeysFile>/wrensec-trusted-keys.list</pgpVerifyKeysFile>
         <pgpVerifyKeysVersion>1.7.0</pgpVerifyKeysVersion>
-
-        <!-- Repository Deployment URLs -->
-        <wrenDistMgmtSnapshotsUrl>https://wrensecurity.jfrog.io/wrensecurity/snapshots</wrenDistMgmtSnapshotsUrl>
-        <wrenDistMgmtReleasesUrl>https://wrensecurity.jfrog.io/wrensecurity/releases</wrenDistMgmtReleasesUrl>
 
         <!-- this property makes sure NetBeans 6.8+ picks up some formatting rules from checkstyle -->
         <netbeans.checkstyle.format>true</netbeans.checkstyle.format>
@@ -449,8 +444,6 @@
                     <version>${mavenCompilerPluginVersion}</version>
 
                     <configuration>
-                        <source>${maven.compiler.source}</source>
-                        <target>${maven.compiler.target}</target>
                         <encoding>${project.build.sourceEncoding}</encoding>
                         <compilerArgument>-Xlint:all</compilerArgument>
                         <showWarnings>true</showWarnings>
@@ -530,7 +523,7 @@
                     </dependencies>
 
                     <configuration>
-                        <source>8</source>
+                        <source>11</source>
                         <author>false</author>
                         <doclint>all,-html</doclint>
                         <quiet>true</quiet>
@@ -677,18 +670,6 @@
     </build>
 
     <profiles>
-        <profile>
-            <id>jre8-compat</id>
-
-            <activation>
-                <jdk>[9,)</jdk>
-            </activation>
-
-            <properties>
-                <maven.compiler.release>8</maven.compiler.release>
-            </properties>
-        </profile>
-
         <profile>
             <id>enforce</id>
 
