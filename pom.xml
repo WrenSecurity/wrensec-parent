@@ -142,7 +142,6 @@
         <javadocPluginVersion>3.4.1</javadocPluginVersion>
         <javadocWindowTitle>${project.name} ${project.version} Documentation</javadocWindowTitle>
         <javadocDocTitle>${javadocWindowTitle}</javadocDocTitle>
-        <javadocStylesheet>org/forgerock/javadoc/javadoc.css</javadocStylesheet>
 
         <!-- maven-pmd-plugin -->
         <pmdPluginVersion>3.19.0</pmdPluginVersion>
@@ -534,7 +533,6 @@
                         <additionalparam>-linksource</additionalparam>
                         <show>protected</show>
                         <excludePackageNames>com.*</excludePackageNames>
-                        <stylesheetfile>${javadocStylesheet}</stylesheetfile>
                     </configuration>
                 </plugin>
 
@@ -995,7 +993,6 @@
                             <additionalparam>-linksource</additionalparam>
                             <show>protected</show>
                             <excludePackageNames>com.*</excludePackageNames>
-                            <stylesheetfile>${javadocStylesheet}</stylesheetfile>
                         </configuration>
 
                         <reportSets>
