@@ -214,10 +214,10 @@
         <mavenReleasePluginVersion>3.0.0-M7</mavenReleasePluginVersion>
 
         <!-- pgpverify-maven-plugin -->
-        <pgpVerifyPluginVersion>1.16.0</pgpVerifyPluginVersion>
+        <pgpVerifyPluginVersion>1.19.0</pgpVerifyPluginVersion>
         <pgpVerifySnapshots>false</pgpVerifySnapshots>
         <pgpVerifyKeysFile>/wrensec-trusted-keys.list</pgpVerifyKeysFile>
-        <pgpVerifyKeysVersion>1.7.0</pgpVerifyKeysVersion>
+        <pgpVerifyKeysVersion>1.8.3</pgpVerifyKeysVersion>
 
         <!-- this property makes sure NetBeans 6.8+ picks up some formatting rules from checkstyle -->
         <netbeans.checkstyle.format>true</netbeans.checkstyle.format>
