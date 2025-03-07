@@ -530,7 +530,7 @@
                         <doctitle>${javadocDocTitle}</doctitle>
                         <header><![CDATA[<b>${javadocDocTitle}</b>]]></header>
                         <footer><![CDATA[<b>${javadocDocTitle}</b>]]></footer>
-                        <additionalparam>-linksource</additionalparam>
+                        <linksource>true</linksource>
                         <show>protected</show>
                         <excludePackageNames>com.*</excludePackageNames>
                     </configuration>
