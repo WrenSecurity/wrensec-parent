@@ -219,6 +219,9 @@
         <pgpVerifyKeysFile>/wrensec-trusted-keys.list</pgpVerifyKeysFile>
         <pgpVerifyKeysVersion>1.8.3</pgpVerifyKeysVersion>
 
+        <!-- sonar-maven-plugin-->
+        <sonarMavenPluginversion>5.1.0.4751</sonarMavenPluginversion>
+
         <!-- this property makes sure NetBeans 6.8+ picks up some formatting rules from checkstyle -->
         <netbeans.checkstyle.format>true</netbeans.checkstyle.format>
 
@@ -663,6 +666,11 @@
                         </dependency>
                     </dependencies>
                 </plugin>
+                <plugin>
+                    <groupId>org.sonarsource.scanner.maven</groupId>
+                    <artifactId>sonar-maven-plugin</artifactId>
+                    <version>${sonarMavenPluginVersion}</version>
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>
@@ -782,12 +790,6 @@
 
             <build>
                 <plugins>
-                    <!-- Enforce Checkstyle during compilation -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-checkstyle-plugin</artifactId>
-                    </plugin>
-
                     <!-- JaCoCo -->
                     <plugin>
                         <groupId>org.jacoco</groupId>
@@ -803,6 +805,68 @@
                                 <phase>prepare-package</phase>
                                 <goals>
                                     <goal>report</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <!--  Spotbugs  -->
+                    <plugin>
+                        <groupId>com.github.spotbugs</groupId>
+                        <artifactId>spotbugs-maven-plugin</artifactId>
+                        <version>${spotbugsPluginVersion}</version>
+
+                        <executions>
+                            <execution>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>check</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+
+                        <configuration>
+                            <xmlOutput>true</xmlOutput>
+                            <effort>Max</effort>
+                            <failThreshold>Low</failThreshold>
+                            <failOnError>false</failOnError>
+                        </configuration>
+                    </plugin>
+
+                    <!--  CheckStyle  -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-checkstyle-plugin</artifactId>
+                        <version>${checkstylePluginVersion}</version>
+                        <executions>
+                            <execution>
+                                <id>checkstyle-validation</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>checkstyle</goal>
+                                </goals>
+                                <configuration>
+                                    <configLocation>org/forgerock/checkstyle/check-src-default.xml</configLocation>
+                                    <encoding>UTF-8</encoding>
+                                    <consoleOutput>false</consoleOutput>
+                                    <failsOnError>false</failsOnError>
+                                    <outputFileFormat>xml</outputFileFormat>
+                                    <outputDirectory>${project.build.directory}/checkstyle-reports</outputDirectory>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <!--  PMD  -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-pmd-plugin</artifactId>
+                        <version>${pmdPluginVersion}</version>
+                        <executions>
+                            <execution>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>pmd</goal>
                                 </goals>
                             </execution>
                         </executions>
