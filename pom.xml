@@ -235,19 +235,6 @@
             -->
             <plugins>
                 <plugin>
-                    <groupId>com.github.spotbugs</groupId>
-                    <artifactId>spotbugs-maven-plugin</artifactId>
-                    <version>${spotbugsPluginVersion}</version>
-                    <dependencies>
-                        <dependency>
-                            <groupId>com.github.spotbugs</groupId>
-                            <artifactId>spotbugs</artifactId>
-                            <version>${spotbugsVersion}</version>
-                        </dependency>
-                    </dependencies>
-                </plugin>
-
-                <plugin>
                     <groupId>org.jacoco</groupId>
                     <artifactId>jacoco-maven-plugin</artifactId>
                     <version>${jacocoPluginVersion}</version>
@@ -395,6 +382,7 @@
                             <goals>
                                 <goal>manifest</goal>
                             </goals>
+
                             <configuration>
                                 <supportIncrementalBuild>true</supportIncrementalBuild>
                             </configuration>
@@ -475,6 +463,12 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-enforcer-plugin</artifactId>
                     <version>${mavenEnforcerPluginVersion}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-failsafe-plugin</artifactId>
+                    <version>3.0.0-M7</version>
                 </plugin>
 
                 <plugin>
@@ -644,12 +638,6 @@
 
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-failsafe-plugin</artifactId>
-                    <version>3.0.0-M7</version>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-war-plugin</artifactId>
                     <version>${mavenWarPluginVersion}</version>
                 </plugin>
@@ -658,6 +646,7 @@
                     <groupId>org.simplify4u.plugins</groupId>
                     <artifactId>pgpverify-maven-plugin</artifactId>
                     <version>${pgpVerifyPluginVersion}</version>
+
                     <dependencies>
                         <dependency>
                             <groupId>org.wrensecurity</groupId>
@@ -666,10 +655,25 @@
                         </dependency>
                     </dependencies>
                 </plugin>
+
                 <plugin>
                     <groupId>org.sonarsource.scanner.maven</groupId>
                     <artifactId>sonar-maven-plugin</artifactId>
                     <version>${sonarMavenPluginVersion}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>com.github.spotbugs</groupId>
+                    <artifactId>spotbugs-maven-plugin</artifactId>
+                    <version>${spotbugsPluginVersion}</version>
+
+                    <dependencies>
+                        <dependency>
+                            <groupId>com.github.spotbugs</groupId>
+                            <artifactId>spotbugs</artifactId>
+                            <version>${spotbugsVersion}</version>
+                        </dependency>
+                    </dependencies>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -794,15 +798,18 @@
                     <plugin>
                         <groupId>org.jacoco</groupId>
                         <artifactId>jacoco-maven-plugin</artifactId>
+
                         <executions>
                             <execution>
                                 <goals>
                                     <goal>prepare-agent</goal>
                                 </goals>
                             </execution>
+
                             <execution>
                                 <id>report</id>
                                 <phase>prepare-package</phase>
+
                                 <goals>
                                     <goal>report</goal>
                                 </goals>
@@ -810,41 +817,20 @@
                         </executions>
                     </plugin>
 
-                    <!--  Spotbugs  -->
-                    <plugin>
-                        <groupId>com.github.spotbugs</groupId>
-                        <artifactId>spotbugs-maven-plugin</artifactId>
-                        <version>${spotbugsPluginVersion}</version>
-
-                        <executions>
-                            <execution>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>check</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-
-                        <configuration>
-                            <xmlOutput>true</xmlOutput>
-                            <effort>Max</effort>
-                            <failThreshold>Low</failThreshold>
-                            <failOnError>false</failOnError>
-                        </configuration>
-                    </plugin>
-
                     <!--  CheckStyle  -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-checkstyle-plugin</artifactId>
-                        <version>${checkstylePluginVersion}</version>
+
                         <executions>
                             <execution>
                                 <id>checkstyle-validation</id>
                                 <phase>verify</phase>
+
                                 <goals>
                                     <goal>checkstyle</goal>
                                 </goals>
+
                                 <configuration>
                                     <configLocation>org/forgerock/checkstyle/check-src-default.xml</configLocation>
                                     <encoding>UTF-8</encoding>
@@ -861,15 +847,39 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-pmd-plugin</artifactId>
-                        <version>${pmdPluginVersion}</version>
+
                         <executions>
                             <execution>
                                 <phase>verify</phase>
+
                                 <goals>
                                     <goal>pmd</goal>
                                 </goals>
                             </execution>
                         </executions>
+                    </plugin>
+
+                    <!--  Spotbugs  -->
+                    <plugin>
+                        <groupId>com.github.spotbugs</groupId>
+                        <artifactId>spotbugs-maven-plugin</artifactId>
+
+                        <executions>
+                            <execution>
+                                <phase>verify</phase>
+
+                                <goals>
+                                    <goal>check</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+
+                        <configuration>
+                            <xmlOutput>true</xmlOutput>
+                            <effort>Max</effort>
+                            <failThreshold>Low</failThreshold>
+                            <failOnError>false</failOnError>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>
