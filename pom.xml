@@ -220,7 +220,13 @@
         <pgpVerifyKeysVersion>1.8.3</pgpVerifyKeysVersion>
 
         <!-- sonar-maven-plugin-->
-        <sonarMavenPluginversion>5.1.0.4751</sonarMavenPluginversion>
+        <sonarMavenPluginVersion>5.1.0.4751</sonarMavenPluginVersion>
+        <sonar.organization>wrensecurity</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.java.jacoco.reportPaths>target/jacoco.xml</sonar.java.jacoco.reportPaths>
+        <sonar.java.pmd.reportPaths>target/pmd.xml</sonar.java.pmd.reportPaths>
+        <sonar.java.checkstyle.reportPaths>target/checkstyle-result.xml</sonar.java.checkstyle.reportPaths>
+        <sonar.java.spotbugs.reportPaths>target/spotbugs.xml</sonar.java.spotbugs.reportPaths>
 
         <!-- this property makes sure NetBeans 6.8+ picks up some formatting rules from checkstyle -->
         <netbeans.checkstyle.format>true</netbeans.checkstyle.format>
