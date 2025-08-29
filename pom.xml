@@ -20,7 +20,7 @@
 
     <groupId>org.wrensecurity</groupId>
     <artifactId>wrensec-parent</artifactId>
-    <version>4.1.2-SNAPSHOT</version>
+    <version>4.2.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Wren Security Parent</name>
@@ -127,32 +127,16 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- maven-compiler-plugin https://maven.apache.org/plugins/maven-compiler-plugin -->
-        <mavenCompilerPluginVersion>3.10.1</mavenCompilerPluginVersion>
+        <mavenCompilerPluginVersion>3.14.0</mavenCompilerPluginVersion>
         <maven.compiler.release>11</maven.compiler.release>
 
         <!-- maven-enforcer-plugin -->
         <maven.min.version>3.6.0</maven.min.version>
         <jdk.min.version>${maven.compiler.release}</jdk.min.version>
 
-        <!-- spotbugs-maven-plugin -->
-        <spotbugsPluginVersion>4.7.2.1</spotbugsPluginVersion>
-        <spotbugsVersion>4.7.3</spotbugsVersion>
-
-        <!-- maven-javadoc-plugin -->
-        <javadocPluginVersion>3.4.1</javadocPluginVersion>
-        <javadocWindowTitle>${project.name} ${project.version} Documentation</javadocWindowTitle>
-        <javadocDocTitle>${javadocWindowTitle}</javadocDocTitle>
-
-        <!-- maven-pmd-plugin -->
-        <pmdPluginVersion>3.19.0</pmdPluginVersion>
-        <pmdTargetJdk>${maven.compiler.release}</pmdTargetJdk>
-
-        <!--  maven-project-info-reports-plugin -->
-        <infoReportsPluginVersion>3.4.1</infoReportsPluginVersion>
-
         <!-- maven-checkstyle-plugin -->
-        <checkstyleVersion>10.4</checkstyleVersion>
-        <checkstylePluginVersion>3.2.0</checkstylePluginVersion>
+        <checkstyleVersion>11.0.0</checkstyleVersion>
+        <checkstylePluginVersion>3.6.0</checkstylePluginVersion>
         <checkstyleSourceConfigLocation>org/forgerock/checkstyle/check-src-default.xml</checkstyleSourceConfigLocation>
         <checkstyleDocTargetConfigLocation>org/forgerock/checkstyle/check-src-doc-target.xml</checkstyleDocTargetConfigLocation>
         <checkstyleSuppressionsLocation>org/forgerock/checkstyle/unit-test-suppressions.xml</checkstyleSuppressionsLocation>
@@ -162,62 +146,101 @@
         <!-- clirr-maven-plugin -->
         <clirrPluginVersion>2.8</clirrPluginVersion>
 
+        <!--  maven-project-info-reports-plugin -->
+        <infoReportsPluginVersion>3.9.0</infoReportsPluginVersion>
+
         <!-- jacoco-maven-plugin https://www.eclemma.org/jacoco/trunk/doc/maven.html -->
-        <jacocoPluginVersion>0.8.8</jacocoPluginVersion>
+        <jacocoPluginVersion>0.8.13</jacocoPluginVersion>
 
-        <!-- maven-bundle-plugin https://felix.apache.org/components/bundle-plugin/ -->
-        <mavenBundlePluginVersion>5.1.8</mavenBundlePluginVersion>
-
-        <!-- maven-dependency-plugin -->
-        <mavenDependencyPluginVersion>3.3.0</mavenDependencyPluginVersion>
-
-        <!-- maven-clean-plugin https://maven.apache.org/components/plugins/maven-clean-plugin -->
-        <mavenCleanPluginVersion>3.2.0</mavenCleanPluginVersion>
-
-        <!-- maven-jar-plugin https://maven.apache.org/plugins/maven-jar-plugin/ -->
-        <mavenJarPluginVersion>3.3.0</mavenJarPluginVersion>
-
-        <!-- maven-war-plugin https://maven.apache.org/plugins/maven-war-plugin/ -->
-        <mavenWarPluginVersion>3.3.2</mavenWarPluginVersion>
-
-        <!-- maven-assembly-plugin https://maven.apache.org/plugins/maven-assembly-plugin/ -->
-        <mavenAssemblyPluginVersion>3.4.2</mavenAssemblyPluginVersion>
-
-        <!-- maven-surefire-plugin https://maven.apache.org/surefire/maven-surefire-plugin/ -->
-        <mavenSurefirePluginVersion>3.0.0-M7</mavenSurefirePluginVersion>
-
-        <!-- maven-source-plugin https://maven.apache.org/plugins/maven-source-plugin/ -->
-        <mavenSourcePluginVersion>3.2.1</mavenSourcePluginVersion>
-
-        <!-- maven-resources-plugin https://maven.apache.org/plugins/maven-resources-plugin/ -->
-        <mavenResourcesPluginVersion>3.3.0</mavenResourcesPluginVersion>
-
-        <!-- maven-remote-resources-plugin https://maven.apache.org/plugins/maven-remote-resources-plugin/ -->
-        <mavenRemoteResourcesPluginVersion>3.0.0</mavenRemoteResourcesPluginVersion>
-
-        <!-- maven-deploy-plugin https://maven.apache.org/plugins/maven-deploy-plugin/ -->
-        <mavenDeployPluginVersion>3.0.0</mavenDeployPluginVersion>
-
-        <!-- maven-install-plugin https://maven.apache.org/plugins/maven-install-plugin/ -->
-        <mavenInstallPluginVersion>3.0.1</mavenInstallPluginVersion>
-
-        <!-- maven-scm-plugin https://maven.apache.org/plugins/maven-scm-plugin/ -->
-        <mavenScmPluginVersion>2.0.0-M3</mavenScmPluginVersion>
+        <!-- maven-javadoc-plugin -->
+        <javadocPluginVersion>3.11.3</javadocPluginVersion>
+        <javadocWindowTitle>${project.name} ${project.version} Documentation</javadocWindowTitle>
+        <javadocDocTitle>${javadocWindowTitle}</javadocDocTitle>
 
         <!-- license-maven-plugin https://mojo.codehaus.org/license-maven-plugin/ -->
-        <licenseMavenPluginVersion>2.0.0</licenseMavenPluginVersion>
+        <licenseMavenPluginVersion>2.6.0</licenseMavenPluginVersion>
+
+        <!-- maven-antrun-plugin https://maven.apache.org/plugins/maven-antrun-plugin/ -->
+        <mavenAntrunPlugin>3.1.0</mavenAntrunPlugin>
+
+        <!-- maven-assembly-plugin https://maven.apache.org/plugins/maven-assembly-plugin/ -->
+        <mavenAssemblyPluginVersion>3.7.1</mavenAssemblyPluginVersion>
+
+        <!-- maven-bundle-plugin https://felix.apache.org/components/bundle-plugin/ -->
+        <mavenBundlePluginVersion>5.1.9</mavenBundlePluginVersion>
+
+        <!-- maven-clean-plugin https://maven.apache.org/components/plugins/maven-clean-plugin -->
+        <mavenCleanPluginVersion>3.5.0</mavenCleanPluginVersion>
+
+        <!-- maven-dependency-plugin https://maven.apache.org/plugins/maven-dependency-plugin/ -->
+        <mavenDependencyPluginVersion>3.8.1</mavenDependencyPluginVersion>
+
+        <!-- maven-deploy-plugin https://maven.apache.org/plugins/maven-deploy-plugin/ -->
+        <mavenDeployPluginVersion>3.1.4</mavenDeployPluginVersion>
 
         <!-- maven-enforcer-plugin https://maven.apache.org/plugins/maven-enforcer-plugin/ -->
-        <mavenEnforcerPluginVersion>3.1.0</mavenEnforcerPluginVersion>
+        <mavenEnforcerPluginVersion>3.6.1</mavenEnforcerPluginVersion>
+
+        <!-- maven-failsafe-plugin https://maven.apache.org/surefire/maven-failsafe-plugin/ -->
+        <mavenFailsafePluginVersion>3.5.3</mavenFailsafePluginVersion>
+
+        <!-- maven-gpg-plugin https://maven.apache.org/plugins/maven-gpg-plugin/ -->
+        <mavenGpgPluginVersion>3.2.8</mavenGpgPluginVersion>
+
+        <!-- maven-install-plugin https://maven.apache.org/plugins/maven-install-plugin/ -->
+        <mavenInstallPluginVersion>3.1.4</mavenInstallPluginVersion>
+
+        <!-- maven-invoker-plugin https://maven.apache.org/plugins/maven-invoker-plugin/ -->
+        <mavenInvokerPluginVersion>3.9.1</mavenInvokerPluginVersion>
+
+        <!-- maven-jar-plugin https://maven.apache.org/plugins/maven-jar-plugin/ -->
+        <mavenJarPluginVersion>3.4.2</mavenJarPluginVersion>
+
+        <!-- maven-jarsigner-plugin https://maven.apache.org/plugins/maven-jarsigner-plugin/ -->
+        <mavenJarsignerPluginVersion>3.1.0</mavenJarsignerPluginVersion>
+
+        <!-- maven-plugin-plugin https://maven.apache.org/plugin-tools/maven-plugin-plugin/ -->
+         <mavenPluginPluginVersion>3.15.1</mavenPluginPluginVersion>
 
         <!-- maven-release-plugin https://maven.apache.org/plugins/maven-release-plugin/ -->
-        <mavenReleasePluginVersion>3.0.0-M7</mavenReleasePluginVersion>
+        <mavenReleasePluginVersion>3.1.1</mavenReleasePluginVersion>
+
+        <!-- maven-remote-resources-plugin https://maven.apache.org/plugins/maven-remote-resources-plugin/ -->
+        <mavenRemoteResourcesPluginVersion>3.3.0</mavenRemoteResourcesPluginVersion>
+
+        <!-- maven-resources-plugin https://maven.apache.org/plugins/maven-resources-plugin/ -->
+        <mavenResourcesPluginVersion>3.3.1</mavenResourcesPluginVersion>
+
+        <!-- maven-scm-plugin https://maven.apache.org/plugins/maven-scm-plugin/ -->
+        <mavenScmPluginVersion>2.1.0</mavenScmPluginVersion>
+
+        <!-- maven-shade-plugin https://maven.apache.org/plugins/maven-shade-plugin/ -->
+        <mavenShadePluginVersion>3.6.0</mavenShadePluginVersion>
+
+        <!-- maven-site-plugin https://maven.apache.org/plugins/maven-site-plugin/ -->
+        <mavenSitePluginVersion>3.21.0</mavenSitePluginVersion>
+
+        <!-- maven-source-plugin https://maven.apache.org/plugins/maven-source-plugin/ -->
+        <mavenSourcePluginVersion>3.3.1</mavenSourcePluginVersion>
+
+        <!-- maven-surefire-plugin https://maven.apache.org/surefire/maven-surefire-plugin/ -->
+        <mavenSurefirePluginVersion>3.5.3</mavenSurefirePluginVersion>
+
+        <!-- maven-war-plugin https://maven.apache.org/plugins/maven-war-plugin/ -->
+        <mavenWarPluginVersion>3.4.0</mavenWarPluginVersion>
+
+        <!-- this property makes sure NetBeans 6.8+ picks up some formatting rules from checkstyle -->
+        <netbeans.checkstyle.format>true</netbeans.checkstyle.format>
 
         <!-- pgpverify-maven-plugin -->
-        <pgpVerifyPluginVersion>1.19.0</pgpVerifyPluginVersion>
+        <pgpVerifyPluginVersion>1.19.1</pgpVerifyPluginVersion>
         <pgpVerifySnapshots>false</pgpVerifySnapshots>
         <pgpVerifyKeysFile>/wrensec-trusted-keys.list</pgpVerifyKeysFile>
-        <pgpVerifyKeysVersion>1.8.3</pgpVerifyKeysVersion>
+        <pgpVerifyKeysVersion>1.9.0</pgpVerifyKeysVersion>
+
+        <!-- maven-pmd-plugin -->
+        <pmdPluginVersion>3.27.0</pmdPluginVersion>
+        <pmdTargetJdk>${maven.compiler.release}</pmdTargetJdk>
 
         <!-- sonar-maven-plugin-->
         <sonarMavenPluginVersion>5.1.0.4751</sonarMavenPluginVersion>
@@ -228,10 +251,11 @@
         <sonar.java.checkstyle.reportPaths>target/checkstyle-result.xml</sonar.java.checkstyle.reportPaths>
         <sonar.java.spotbugs.reportPaths>target/spotbugs.xml</sonar.java.spotbugs.reportPaths>
 
-        <!-- this property makes sure NetBeans 6.8+ picks up some formatting rules from checkstyle -->
-        <netbeans.checkstyle.format>true</netbeans.checkstyle.format>
+        <!-- spotbugs-maven-plugin -->
+        <spotbugsPluginVersion>4.9.4.0</spotbugsPluginVersion>
+        <spotbugsVersion>4.9.4</spotbugsVersion>
 
-        <wrenBuildToolsVersion>1.2.0</wrenBuildToolsVersion>
+        <wrensecBuildToolsVersion>1.2.1</wrensecBuildToolsVersion>
     </properties>
 
     <build>
@@ -360,7 +384,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-antrun-plugin</artifactId>
-                    <version>3.1.0</version>
+                    <version>${mavenAntrunPlugin}</version>
                 </plugin>
 
                 <plugin>
@@ -405,7 +429,7 @@
                         <dependency>
                             <groupId>org.wrensecurity</groupId>
                             <artifactId>wrensec-build-tools</artifactId>
-                            <version>${wrenBuildToolsVersion}</version>
+                            <version>${wrensecBuildToolsVersion}</version>
                         </dependency>
 
                         <dependency>
@@ -416,11 +440,10 @@
                     </dependencies>
 
                     <configuration>
-                        <enableRSS>false</enableRSS>
                         <configLocation>${checkstyleSourceConfigLocation}</configLocation>
                         <headerLocation>${checkstyleHeaderLocation}</headerLocation>
-                        <suppressionsLocation>${checkstyleSuppressionsLocation}</suppressionsLocation>
                         <includeTestSourceDirectory>true</includeTestSourceDirectory>
+                        <suppressionsLocation>${checkstyleSuppressionsLocation}</suppressionsLocation>
 
                         <!-- Only output errors if we're not expecting any -->
                         <consoleOutput>${checkstyleFailOnError}</consoleOutput>
@@ -461,12 +484,6 @@
 
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-docck-plugin</artifactId>
-                    <version>1.1</version>
-                </plugin>
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-enforcer-plugin</artifactId>
                     <version>${mavenEnforcerPluginVersion}</version>
                 </plugin>
@@ -474,13 +491,13 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-failsafe-plugin</artifactId>
-                    <version>3.0.0-M7</version>
+                    <version>${mavenFailsafePluginVersion}</version>
                 </plugin>
 
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-gpg-plugin</artifactId>
-                    <version>3.2.6</version>
+                    <version>${mavenGpgPluginVersion}</version>
                 </plugin>
 
                 <plugin>
@@ -492,7 +509,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-invoker-plugin</artifactId>
-                    <version>3.3.0</version>
+                    <version>${mavenInvokerPluginVersion}</version>
                 </plugin>
 
                 <plugin>
@@ -504,7 +521,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jarsigner-plugin</artifactId>
-                    <version>3.0.0</version>
+                    <version>${mavenJarsignerPluginVersion}</version>
                 </plugin>
 
                 <plugin>
@@ -520,7 +537,7 @@
                         <dependency>
                             <groupId>org.wrensecurity</groupId>
                             <artifactId>wrensec-build-tools</artifactId>
-                            <version>${wrenBuildToolsVersion}</version>
+                            <version>${wrensecBuildToolsVersion}</version>
                         </dependency>
                     </dependencies>
 
@@ -542,7 +559,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-plugin-plugin</artifactId>
-                    <version>3.7.0</version>
+                    <version>${mavenPluginPluginVersion}</version>
                 </plugin>
 
                 <plugin>
@@ -599,13 +616,13 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-shade-plugin</artifactId>
-                    <version>3.4.1</version>
+                    <version>${mavenShadePluginVersion}</version>
                 </plugin>
 
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-site-plugin</artifactId>
-                    <version>3.12.1</version>
+                    <version>${mavenSitePluginVersion}</version>
 
                     <configuration>
                         <outputEncoding>${project.build.sourceEncoding}</outputEncoding>
@@ -637,7 +654,7 @@
                         <dependency>
                             <groupId>org.wrensecurity</groupId>
                             <artifactId>wrensec-build-tools</artifactId>
-                            <version>${wrenBuildToolsVersion}</version>
+                            <version>${wrensecBuildToolsVersion}</version>
                         </dependency>
                     </dependencies>
                 </plugin>
@@ -839,11 +856,9 @@
 
                                 <configuration>
                                     <configLocation>org/forgerock/checkstyle/check-src-default.xml</configLocation>
-                                    <encoding>UTF-8</encoding>
                                     <consoleOutput>false</consoleOutput>
                                     <failsOnError>false</failsOnError>
                                     <outputFileFormat>xml</outputFileFormat>
-                                    <outputDirectory>${project.build.directory}/checkstyle-reports</outputDirectory>
                                 </configuration>
                             </execution>
                         </executions>
@@ -1069,7 +1084,6 @@
                             <windowtitle>${javadocWindowTitle}</windowtitle>
                             <doctitle>${javadocDocTitle}</doctitle>
                             <header><![CDATA[<b>${javadocDocTitle}</b>]]></header>
-                            <footer><![CDATA[<b>${javadocDocTitle}</b>]]></footer>
                             <additionalparam>-linksource</additionalparam>
                             <show>protected</show>
                             <excludePackageNames>com.*</excludePackageNames>
